@@ -1,0 +1,390 @@
+@import url('slider.css');
+
+body {
+  margin: 0;
+  font-family: 'Poiret One', cursive;
+}
+
+section {
+  padding: 20px 0px;
+}
+
+/* INTRO */
+
+#intro {
+  height: 70vh;
+  min-height: 450px;
+  position: relative;
+  margin-top: 50px;
+  padding: 20px;
+  background: url('../img/exmpl2.jpeg');
+  background-size: 600px;
+  color: white;
+  text-align: center;
+}
+
+#intro h1 {
+  margin: 20px 0px 10px 0px;
+  font-size: 45px;
+  text-transform: uppercase;
+}
+
+#intro h2 {
+  text-transform: uppercase;
+}
+
+#intro .text {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 60%;
+  margin: auto;
+}
+
+#intro #logo {
+  height: 200px;
+  margin-top: 20px;
+}
+
+.accent {
+  color: #02bfbf;
+}
+
+.tint {
+  position: absolute;
+  background: rgba(64, 64, 64, 0.9);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* HEADER */
+
+header {
+  position: fixed;
+  background: black;
+  color: white;
+  width: 100%;
+  z-index: 2;
+  height: 60px;
+  top: 0;
+
+  background: linear-gradient(135deg, #000 25%, transparent 25%) -50px 0, linear-gradient(225deg, #000 25%, transparent 25%) -50px 0, linear-gradient(315deg, #000 25%, transparent 25%), linear-gradient(45deg, #000 25%, transparent 25%);
+  background-size: 8px 230px;
+  background-color: rgba(255, 255, 255, 0.001);
+}
+
+#menu .logo {
+  float: left;
+  margin: 15px 0px;
+  color: #02bfbf;
+  font-size: 18px;
+  font-family: 'Poiret One', cursive;
+}
+
+#menu ul {
+  width: 50%;
+  float: right;
+  margin: 0px;
+  padding: 0px;
+}
+
+#menu ul li {
+  display: inline-block;
+  padding: 16px 0px;
+}
+
+#menu ul li:hover a {
+  border-color: #038484;
+}
+
+#menu ul a.active {
+  border-bottom: 3px solid #02bfbf;
+}
+
+#menu ul li:hover a.active{
+  background: inherit;
+}
+
+#menu ul li a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-bottom: 3px solid;
+  border-color: black;
+  transition: all 1s;
+  transition-timing-function: ease;
+  /* for Safari */
+  -webkit-transition-timing-function: ease;
+}
+
+/* ABOUT */
+
+#about {
+  /*height: 600px;*/
+}
+
+#about h1 {
+  padding: 15px 10px;
+  background: #02bfbf;
+  text-align: center;
+  margin-top: -20px ;
+}
+
+#about .inline-item {
+  width: 100%;
+  padding: 10px 0px 20px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  height: 120px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#about .inline-item:nth-child(2n) {
+  flex-direction: row-reverse;
+}
+
+#about .inline-item .text-block {
+  width: 75%;
+  padding-right: 15px;
+}
+
+#about .inline-item .text-block h3 {
+  margin: 3px 0px 20px;
+}
+
+#about .inline-item .text-block h3 span {
+  padding: 2px 12px;
+  background: black none repeat scroll 0% 0%;
+  color: #02bfbf;
+  font-size: 25px;
+}
+
+#about .inline-item img {
+  width: 150px;
+  height: 100px;
+  border: 2px solid #bbb;
+  /*vertical-align: top;*/
+}
+
+/* COLLAGE */
+
+#collage {
+  padding-top: 40px;
+  background: #eee;
+  text-align: center;
+}
+
+#collage #download {
+  text-decoration: none;
+  padding: 10px 15px;
+  background: #02bfbf;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 2px solid #039494;
+}
+
+#collage #download:hover {
+  background: #05abab;
+}
+
+#collage .btn-block {
+  margin: 30px;
+}
+
+#canvas-block {
+  position: relative;
+}
+
+.container {
+  position: relative;
+  padding: 0px 10px;
+  max-width: 1100px;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+canvas#main {
+  background-color: black;
+  width: 100%;
+  max-height: 700px;
+  max-width: 1100px;
+}
+
+canvas#main.hover {
+  background-color: green;
+}
+
+ul.c_menu {
+  z-index: 1000;
+  position: absolute;
+  background-color: #C0C0C0;
+  border: 1px solid #6D6D6F;
+  padding: 5px 0px;
+  /*display: block;
+  margin: 0;
+  list-style-type: none;
+  list-style: none;*/
+  border-radius: 5px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block;
+}
+
+ul.c_menu {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+ul.c_menu li {
+  padding: 3px 20px;
+  text-align: left;
+}
+
+ul.c_menu li:hover {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+#photos {
+  height: 104px;
+  background-color: #ddd;
+  padding: 10px;
+  border: 2px dashed gray;
+  margin: 20px 10px;
+}
+
+#photos.hover {
+  background: rgba(54, 206, 206, 0.3);
+  border: 2px solid #038484;
+  cursor:
+}
+
+#photos .placeholder {
+  color: gray;
+  font-size: 25px;
+  height: 100px;
+  display: inline-block;
+  line-height: 90px;
+  text-shadow: 0px 0px 0.5px #ffffff;
+}
+
+.upload_btn {
+  position: relative;
+  border: 2px solid #aaa;
+  padding: 5px;
+  background: #ddd;
+  display: inline-block;
+  float: left;
+  height: 90px;
+  color: #6f6d6d;
+  font-family: sans-serif;
+}
+.upload_btn:hover {
+  background: #ccc;
+}
+
+.upload_btn:active {
+  background: #ccc;
+}
+
+.upload_btn > i {
+  margin: 28px 0px;
+}
+
+.upload_btn > input {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+img.thumb {
+  border: 2px solid #aaa;
+  cursor: pointer;
+  display:inline-block;
+}
+
+img.thumb + img.thumb {
+  margin-left: 10px;
+}
+
+#scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap;
+  padding: 0px 10px;
+}
+
+/* FOOTER */
+
+footer {
+  background: black none repeat scroll 0% 0%;
+  height: 50px;
+  color: gray;
+  text-align: center;
+  padding: 15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+  #intro .text {
+    width: 100%;
+  }
+}
+@media(max-width:750px) {
+  #about .inline-item, #about .inline-item:nth-child(2n) {
+    height: 260px;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  #about .inline-item .text-block h3 {
+    text-align: center;
+  }
+
+  #about .inline-item .text-block {
+    text-align: justify;
+    padding: 0px;
+    width: 90%;
+  }
+
+  #collage #photos .placeholder {
+    font-size: 18px;
+  }
+}
+
+@media(max-width:480px) {
+  #menu ul {
+    width: 85%;
+  }
+
+  #intro #logo {
+    height: 120px;
+  }
+
+  #about .inline-item, #about .inline-item:nth-child(2n) {
+    height: 300px;
+  }
+}

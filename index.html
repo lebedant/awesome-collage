@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Awesome collage</title>
+    <script src="js/Main.js"></script>
+    <script src="js/Rect.js"></script>
+    <script src="js/MyNode.js"></script>
+    <script src="js/Grid.js"></script>
+    <script src="js/Canvas.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/fontawesome/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="js/scrollPage.js"> </script>
+  </head>
+
+  <body>
+    <header>
+      <nav id="menu">
+        <div class="container">
+          <div class="logo">CLG</div>
+          <ul>
+            <li><a href="#intro">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#collage">Collage</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- INTRO -->
+    <section id="intro">
+      <div class="tint"></div>
+      <div class="text">
+          <h1>Awesome collage</h1>
+          <h2>Create your <span class="accent">own</span> template</h2>
+          <img id="logo" src="img/logo.png" alt="logo" />
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h1>Steps to your awesome collage</h1>
+      <div class="container">
+        <!-- <h2>  </h2> -->
+        <div class="inline-item">
+          <div class="text-block">
+            <h3> <span>1.</span> Split horizontally </h3>
+            <!-- <p>Just click right and in the contex menu choose "Divide horizontally". By default it splits in the middle (50%). Also, beside splited area a slider appears, with which you can change the separation.</p> -->
+            <p>Right click on the canvas and select "Divide horizontally" in the context menu. The cutting line will split the canvas in the middle by default, but you can adjust it using a slider.</p>
+          </div>
+          <img src="img/horiz.png" alt="" />
+        </div>
+        <div class="inline-item">
+          <div class="text-block">
+            <h3> <span>2.</span> Split vertically </h3>
+            <p>If you choose item "Divide vertically" in the context menu of the highlighted            area, that area splits vertically in the middle (by default). As well as in the previous case, you can edit that split.</p>
+          </div>
+          <img src="img/vert.png" alt="" />
+        </div>
+        <div class="inline-item">
+          <div class="text-block">
+            <h3> <span>3.</span> Change split value or delete nodes </h3>
+            <p>In case if you change your mind, you always have possibility to change separation value or even remove some area (remember, that if you choose "Delete" on one area, its pair will be deleted too). And if you divide area with assigned photo, the photo will be removed and the area will be split.
+            </p>
+          </div>
+          <img src="img/del.png" alt="" />
+        </div>
+        <div class="inline-item">
+          <div class="text-block">
+            <h3> <span>4.</span> Add your photos </h3>
+            <p>And finally, you can upload your favorite photos. Use the "plus" button to upload one or more files. Also, drag&amp;drop is supported on the "photo tape". After that, just drag photos from the tape on the canvas.</p>
+          </div>
+          <img src="img/test.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLAGE -->
+    <section id="collage">
+      <div class="container">
+        <h1> Awesome collage </h1>
+        <div id="canvas-block">
+          <canvas id="main"></canvas>
+        </div>
+      </div>
+      <div id="photos">
+        <div class="upload_btn">
+          <input type="file" id="fileselect" multiple="multiple"/>
+          <i class="fa fa-plus fa-2x"></i>
+        </div>
+        <span class="placeholder"> Add photos (button or Drag&amp;Drop) </span>
+        <div id="scroll"></div>
+      </div>
+      <div class="btn-block"> <a href="#" id="download"> Download </a> </div>
+    </section>
+
+    <footer>
+      <p>Copyright &copy; 2016 Copyright Holder All Rights Reserved. Antonina Lebedeva.</p>      
+    </footer>
+
+    <script>
+      // create Canvas object
+      var canvas = new Canvas("main");
+      // hide contextMenu on click somewhere on document
+      document.addEventListener("click", hideAllMenu);
+      // event listener on upload button
+      var fileselect = $id("fileselect");
+      fileselect.addEventListener("change", fileSelectHandler, false);
+      // event listener on download button
+      $id("download").addEventListener("click", download);
+      //
+      var photoTape = $id("photos");
+      photoTape.addEventListener("dragover", dragOverTape);
+      photoTape.addEventListener("dragleave", dragOverTape);
+      photoTape.addEventListener("drop", fileSelectHandler);
+
+      function dragOverTape(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $id("photos").className = (e.type == "dragover" ? "hover" : "");
+      }
+    </script>
+  </body>
+</html>
