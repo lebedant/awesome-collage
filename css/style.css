@@ -348,12 +348,12 @@ footer {
 
 /* RESPONSIVE */
 
-@media only screen and (max-device-width:850px) {
+@media only screen and (max-width:850px) {
   #intro .text {
     width: 100%;
   }
 }
-@media only screen and (max-device-width:750px) {
+@media only screen and (max-width:750px) {
   #about .inline-item, #about .inline-item:nth-child(2n) {
     height: 260px;
     flex-direction: column-reverse;
@@ -375,7 +375,7 @@ footer {
   }
 }
 
-@media only screen and (max-device-width:480px) {
+@media only screen and (max-width:480px) {
   #menu ul {
     width: 85%;
   }
