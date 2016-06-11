@@ -1,5 +1,8 @@
 @import url('slider.css');
 
+body { -webkit-touch-callout: none !important; }
+a, canvas { -webkit-user-select: none !important; }
+
 body {
   margin: 0;
   font-family: 'Poiret One', cursive;
