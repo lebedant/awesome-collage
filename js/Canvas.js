@@ -22,7 +22,9 @@ function Canvas(id) {
 
 Canvas.prototype.dragOver = function (e) {
   e.stopPropagation();
-  e.preventDefault();
+  // e.preventDefault();
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
   hideAllSliders();
   var pos = getMousePos(this.canvas, e);
   var node = this.root.findLeafForPoint(pos.x, pos.y);
@@ -33,12 +35,16 @@ Canvas.prototype.dragOver = function (e) {
 }
 
 Canvas.prototype.dragLeave = function (e) {
-  e.preventDefault();
+  // e.preventDefault();
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
 }
 
 Canvas.prototype.drop = function (e) {
   e.stopPropagation();
-  e.preventDefault();
+  // e.preventDefault();
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
   var pos = getMousePos(this.canvas, e);
   var node = this.root.findLeafForPoint(pos.x, pos.y);
   var imgId = e.dataTransfer.getData("text");
@@ -62,7 +68,8 @@ Canvas.prototype.onHover = function(e) {
 }
 
 Canvas.prototype.contextMenu = function(e) {
-  e.preventDefault();
+  // e.preventDefault();
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
   hideAllMenu(e);
   hideAllSliders(e);
   var pos = getMousePos(this.canvas, e);

@@ -52,7 +52,8 @@ function mouseY(evt) {
 }
 
 function download(e) {
-  e.preventDefault();
+  // e.preventDefault();
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
   var img_src = canvas.canvas.toDataURL("image/jpeg", 1.0);
   var ah = document.createElement("a");
   ah.href = img_src;
@@ -61,7 +62,8 @@ function download(e) {
 }
 
 function fileSelectHandler(e) {
-  e.preventDefault();
+  // e.preventDefault();
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
   var files = e.target.files || e.dataTransfer.files;
   for (var i = 0, f; f = files[i]; i++) {
     var reader = new FileReader();
@@ -74,7 +76,7 @@ function fileSelectHandler(e) {
         thumb.draggable = "true";
         thumb.className = "thumb";
 
-        $('#file.name').draggable();  
+        $('#file.name').draggable();
         thumb.addEventListener("dragstart",function(ev) {
           ev.dataTransfer.setData("text", ev.target.id);
         });
