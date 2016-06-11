@@ -13,7 +13,7 @@ function getMousePos(canvas, evt) {
 function hideAllMenu(e) {
   // e.preventDefault();
   var list = document.querySelectorAll(".c_menu");
-  for (var item of list) {
+  for(var i = 0, item; item = list[i]; i++){
     item.classList.remove("show");
     item.classList.add("hide");
   }
@@ -21,7 +21,7 @@ function hideAllMenu(e) {
 
 function hideAllSliders(e) {
   var list = document.querySelectorAll(".slider");
-  for (var item of list) {
+  for(var i = 0, item; item = list[i]; i++){
     item.classList.remove("show");
     item.classList.add("hide");
   }
@@ -75,8 +75,6 @@ function fileSelectHandler(e) {
         thumb.height = 100;
         thumb.draggable = "true";
         thumb.className = "thumb";
-
-        $('#file.name').draggable();
         thumb.addEventListener("dragstart",function(ev) {
           ev.dataTransfer.setData("text", ev.target.id);
         });

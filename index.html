@@ -104,6 +104,9 @@
     </footer>
 
     <script>
+      window.onbeforeunload = function() {
+        return "Did you save your stuff?"
+      }
       // create Canvas object
       var canvas = new Canvas("main");
       // hide contextMenu on click somewhere on document
