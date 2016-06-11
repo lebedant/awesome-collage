@@ -285,9 +285,8 @@ ul.c_menu li:hover {
 #photos .placeholder {
   color: gray;
   font-size: 25px;
-  height: 100px;
-  display: inline-block;
-  line-height: 90px;
+  display: block;
+  padding: 40px 0px;
   text-shadow: 0px 0px 0.5px #ffffff;
 }
 
@@ -388,6 +387,12 @@ footer {
   }
 
   #about .inline-item, #about .inline-item:nth-child(2n) {
-    height: 300px;
+    height: 310px;
+  }
+}
+
+@media only screen and (max-width:320px) {
+  #collage #photos .placeholder {
+    padding: 25px 0px;
   }
 }

@@ -73,6 +73,8 @@ function fileSelectHandler(e) {
         thumb.height = 100;
         thumb.draggable = "true";
         thumb.className = "thumb";
+
+        $('#file.name').draggable();  
         thumb.addEventListener("dragstart",function(ev) {
           ev.dataTransfer.setData("text", ev.target.id);
         });
