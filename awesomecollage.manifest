@@ -1,0 +1,25 @@
+CACHE MANIFEST
+# 14:58
+
+CACHE:
+index.html
+css/slider.css
+css/style.css
+# google font
+http://fonts.gstatic.com/s/poiretone/v4/HrI4ZJpJ3Fh0wa5ofYMK8QzyDMXhdD8sAj6OAJTFsBI.woff2
+# jQuery
+http://code.jquery.com/jquery-1.7.2.min.js
+# IMAGES
+img/vert.png
+img/horiz.png
+img/del.png
+img/drag&drop.png
+img/logo.png
+img/exmpl2.jpeg
+img/plus-xxl.png
+# JS files
+js/scrollPage.js
+js/Main.js
+js/Rect.js
+js/MyNode.js
+js/Canvas.js

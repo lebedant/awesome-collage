@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
+<!-- manifest="awesomecollage.manifest"> -->
   <head>
     <title>Awesome collage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/Main.js"></script>
     <script src="js/Rect.js"></script>
     <script src="js/MyNode.js"></script>
-    <script src="js/Grid.js"></script>
     <script src="js/Canvas.js"></script>
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/fontawesome/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-    <!-- //<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
 
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-    <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="js/scrollPage.js"> </script>
   </head>
 
@@ -91,13 +85,15 @@
       <div id="photos">
         <div class="upload_btn">
           <input type="file" id="fileselect" multiple="multiple" accept='image/*'/>
-          <i class="fa fa-plus fa-2x"></i>
+          <img src="img/plus-xxl.png" alt="plus icon"/>
         </div>
         <span class="placeholder"> Add photos (button or Drag&amp;Drop) </span>
         <div id="scroll"></div>
       </div>
-      <div class="btn-block"> <a href="#" id="download"> Download </a> </div>
+      <div class="btn-block"> <a href="" id="download"> Download </a> </div>
     </section>
+
+    <section id="for-ie-download"><div class="container"></div></section>
 
     <footer>
       <p>Copyright &copy; 2016 Copyright Holder All Rights Reserved. Antonina Lebedeva.</p>
@@ -110,23 +106,17 @@
       // create Canvas object
       var canvas = new Canvas("main");
       // hide contextMenu on click somewhere on document
-      document.addEventListener("click", hideAllMenu);
+      document.addEventListener("click", kaj.hideAllMenu);
       // event listener on upload button
-      var fileselect = $id("fileselect");
-      fileselect.addEventListener("change", fileSelectHandler, false);
+      var fileselect = kaj.$id("fileselect");
+      fileselect.addEventListener("change", kaj.fileSelectHandler, false);
       // event listener on download button
-      $id("download").addEventListener("click", download);
+      kaj.$id("download").addEventListener("click", kaj.download);
       //
-      var photoTape = $id("photos");
-      photoTape.addEventListener("dragover", dragOverTape);
-      photoTape.addEventListener("dragleave", dragOverTape);
-      photoTape.addEventListener("drop", fileSelectHandler);
-
-      function dragOverTape(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        $id("photos").className = (e.type == "dragover" ? "hover" : "");
-      }
+      var photoTape = kaj.$id("photos");
+      photoTape.addEventListener("dragover", kaj.dragOverTape);
+      photoTape.addEventListener("dragleave", kaj.dragOverTape);
+      photoTape.addEventListener("drop", kaj.fileSelectHandler);
     </script>
   </body>
 </html>

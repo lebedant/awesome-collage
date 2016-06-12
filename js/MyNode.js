@@ -20,10 +20,11 @@ function MyNode(canvas, rect, parent) {
 	// DELETE
 	var del = document.createElement('li');
 	del.innerHTML = "Delete node";
+
 	this.contextmenu.appendChild(by_x);
 	this.contextmenu.appendChild(by_y);
 	this.contextmenu.appendChild(del);
-	var parent = $id("collage");
+	var parent = kaj.$id("collage");
 	parent.appendChild(this.contextmenu);
 
 	by_x.addEventListener("click", this.split.bind(this, "x", 0.5));
@@ -59,7 +60,7 @@ MyNode.prototype.split = function(separationAxis, separationValue) {
 }
 
 MyNode.prototype.showSlider = function(e) {
-	hideAllSliders(e);
+	kaj.hideAllSliders(e);
 	if (this.parent == null || this.parent.slider == null) return;
 	this.parent.slider.classList.remove("hide");
 	this.parent.slider.classList.add("show");
@@ -87,7 +88,7 @@ MyNode.prototype.createSlider = function(value) {
 		this.slider.style.left = this.rect.x + "px";
 	}
 	this.slider.addEventListener("change", this.changeSeparation.bind(this, this.separationAxis));
-	var parent = $id("canvas-block");
+	var parent = kaj.$id("canvas-block");
 	parent.appendChild(this.slider);
 }
 
@@ -266,6 +267,6 @@ MyNode.prototype.drawImage = function() {
 MyNode.prototype.showMenu = function(event) {
 	this.contextmenu.classList.remove("hide");
 	this.contextmenu.classList.add("show");
-	this.contextmenu.style.top =  mouseY(event) + "px";
-	this.contextmenu.style.left = mouseX(event) + "px";
+	this.contextmenu.style.top =  kaj.mouseY(event) + "px";
+	this.contextmenu.style.left = kaj.mouseX(event) + "px";
 }

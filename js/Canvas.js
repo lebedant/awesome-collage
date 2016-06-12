@@ -1,15 +1,10 @@
 function Canvas(id) {
-  this.canvas = $id(id);
+  this.canvas = kaj.$id(id);
   this.canvas.width = $("#canvas-block").width();
   this.canvas.height = this.canvas.width / 1.57;
-  console.log(this.canvas.width);
-  console.log(this.canvas.height);
-  // var size = this.canvas.getBoundingClientRect();
   var mainRect = new Rect(0, 0, this.canvas.width, this.canvas.height);
   this.root = new MyNode(this, mainRect, null);
 
-  //  ON HOVER:
-  // this.canvas.addEventListener("mousemove", this.onHover.bind(this));
   //  CONTEX MENU:
   this.canvas.addEventListener("contextmenu", this.contextMenu.bind(this));
   //  SHOW SLIDER:
@@ -22,11 +17,10 @@ function Canvas(id) {
 
 Canvas.prototype.dragOver = function (e) {
   e.stopPropagation();
-  // e.preventDefault();
   e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-  hideAllSliders();
-  var pos = getMousePos(this.canvas, e);
+  kaj.hideAllSliders();
+  var pos = kaj.getMousePos(this.canvas, e);
   var node = this.root.findLeafForPoint(pos.x, pos.y);
   if (this.activeNode == node) { return; }
   this.activeNode = node;
@@ -35,44 +29,41 @@ Canvas.prototype.dragOver = function (e) {
 }
 
 Canvas.prototype.dragLeave = function (e) {
-  // e.preventDefault();
+  e.stopPropagation();
   e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-
 }
 
 Canvas.prototype.drop = function (e) {
-  e.stopPropagation();
-  // e.preventDefault();
-  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-
-  var pos = getMousePos(this.canvas, e);
-  var node = this.root.findLeafForPoint(pos.x, pos.y);
-  var imgId = e.dataTransfer.getData("text");
-  var img = $id(imgId);
-  // console.log(img);
+  // prevent default behaviour
+  this.dragLeave(e);
+  // find
+  var pos = kaj.getMousePos(this.canvas, e);
+  var node;
+  // if its the same node
+  var curNode = this.activeNode.rect;
+  if ((curNode.x <= pos.x || curNode.x + curNode.width >= pos.x) &&
+      (curNode.y <= pos.y || curNode.y + curNode.height >= pos.y)) {
+    node = this.activeNode;
+  } else {
+    node = this.root.findLeafForPoint(pos.x, pos.y);
+  }
+  var imgId = e.dataTransfer.getData("id");
+  var img = kaj.$id(imgId);
   this.redrawCanvas();
   node.dropImage(img);
 }
 
 Canvas.prototype.showSlider = function(e) {
-  var pos = getMousePos(this.canvas, e);
+  var pos = kaj.getMousePos(this.canvas, e);
   var node = this.root.findLeafForPoint(pos.x, pos.y);
   node.showSlider(e);
 }
 
-Canvas.prototype.onHover = function(e) {
-  var pos = getMousePos(this.canvas, e);
-  var node = this.root.findLeafForPoint(pos.x, pos.y);
-  this.redrawCanvas();
-  node.highlight();
-}
-
 Canvas.prototype.contextMenu = function(e) {
-  // e.preventDefault();
   e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-  hideAllMenu(e);
-  hideAllSliders(e);
-  var pos = getMousePos(this.canvas, e);
+  kaj.hideAllMenu(e);
+  kaj.hideAllSliders(e);
+  var pos = kaj.getMousePos(this.canvas, e);
   var node = this.root.findLeafForPoint(pos.x, pos.y);
   this.redrawCanvas();
   node.highlight();
